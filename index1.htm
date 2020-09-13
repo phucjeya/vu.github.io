@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        h1 {
+            font-size: 60px;
+            text-align: center;
+        }
+        
+        p,
+        li {
+            font-size: 16px;
+            line-height: 2;
+            letter-spacing: 1px;
+        }
+        
+        html {
+            background-color: #00539F;
+        }
+        
+        body {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #FF9500;
+            padding: 0 20px 20px 20px;
+            border: 5px solid black;
+        }
+        
+        h1 {
+            margin: 0;
+            padding: 20px 0;
+            color: #00539F;
+            text-shadow: 3px 3px 1px black;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mozilla is cool</h1>
+    <img src='images/firefox2.png' alt="firefox-icon">
+    <p>At Mozilla, we're a global community of</p>
+    <ul>
+        <li>Technologists
+        </li>
+        <li>Thinkers</li>
+        <li>Builders</li>
+    </ul>
+    <button>Change User</button>
+    <script type="text/javascript">
+        // let hoang = {
+        //     name: 'hoang cute',
+        //     deptrai: true,
+        //     age: 26,
+        //     si: function() {
+        //         document.write('Hello cac ban minh la phuc jeya')
+        //     }
+        // }
+        // const traicay = new Array(4)
+        // traicay[0] = 'xoai'
+        // traicay[1] = 'buoi'
+        // traicay[2] = 'cam'
+        // traicay[3] = 'quyt'
+        // if (hoang.age == 26) {
+
+        // }
+        // for (const trai of traicay) {
+        //     document.write(trai);
+        // }
+        /*  var myHeading = document.querySelector('h1');
+          myHeading.textContent = 'hello world'*/
+
+        // var num;
+        // var temp = 0;
+        // var speed = 5000; /* this is set for 5 seconds, edit value to suit requirements */
+        // var preloads = [];
+        // /* add any number of images here */
+        // preload(
+        //     'https://1.bp.blogspot.com/-TBGqka33pt8/UzsBjJau3BI/AAAAAAAAOBM/-GOF_49AEis/s0/YouTube-Logo-Widescreen-Wallpaper.jpg',
+        //     'https://3.bp.blogspot.com/-oVYf6cyPJQ0/Uzty2W6T0_I/AAAAAAAAOCE/4tg8Cug3AqM/s0/2.jpg',
+        //     'https://2.bp.blogspot.com/-p_oge-gkZ1Q/UztzJKaAklI/AAAAAAAAOCM/05y2C7t1Zn0/s0/1.jpg',
+        //     'https://4.bp.blogspot.com/-yYAY4NwjsPY/UztzZXuF56I/AAAAAAAAOCU/jNq7JSCJMj0/s0/3.jpg'
+        // );
+
+        // function preload() {
+        //     for (var c = 0; c < arguments.length; c++) {
+        //         preloads[preloads.length] = new Image();
+        //         preloads[preloads.length - 1].src = arguments[c];
+        //     }
+        // }
+
+        // function rotateImages() {
+        //     num = Math.floor(Math.random() * preloads.length);
+        //     if (num == temp) {
+        //         rotateImages();
+        //     } else {
+        //         document.body.style.backgroundImage = 'url(' + preloads[num].src + ')';
+        //         temp = num;
+        //         setTimeout(function() {
+        //             rotateImages()
+        //         }, speed);
+        //     }
+        // }
+
+        // if (window.addEventListener) {
+        //     window.addEventListener('load', function() {
+        //         setTimeout(function() {
+        //             rotateImages()
+        //         }, speed)
+        //     }, false);
+        // } else {
+        //     if (window.attachEvent) {
+        //         window.attachEvent('onload', function() {
+        //             setTimeout(function() {
+        //                 rotateImages()
+        //             }, speed)
+        //         });
+        //     }
+        // }
+        // window.onload = function() {
+        //     setTimeout("switch_Image()", 3000);
+        // }
+        // var current = 1;
+        // var num_image = 4;
+
+        // function switch_Image() {
+        //     current++;
+        //     document.images['image'].src = 'img/example-slide-' + current + '.jpg';
+        //     if (current < num_image) {
+        //         setTimeout("switch_Image()", 300);
+        //     } else if (current == num_image) {
+        //         current = 0;
+        //         setTimeout("switch_Image()", 300);
+        //     }
+        // }
+        let myImage = document.querySelector('img');
+
+        myImage.onclick = function() {
+            let mySrc = myImage.getAttribute('src');
+            if (mySrc === 'images/firefox2.png') {
+                myImage.setAttribute('src', 'images/firefox-icon.png');
+            } else
+                myImage.setAttribute('src', 'images/firefox2.png');
+        }
+
+        //Personalizedc ưelcỏm message code
+        let myButton = document.querySelector('button')
+        let myHeading = document.querySelector('h1')
+
+        function setUserName() {
+            let myName = prompt("please enter your name.")
+            if (!myName || myName === null) {
+                setUserName();
+            } else {
+                localStorage.setItem('name', myName)
+                myHeading.innerHTML = 'Mozilla is cool,' + myName;
+            }
+
+        }
+        if (!localStorage.getItem('name')) {
+            setUserName();
+        } else {
+            let storedName = localStorage.getItem('name');
+            myHeading.innerHTML = 'Mozilla is cool,' + storedName;
+        }
+        myButton.onclick = function() {
+            setUserName();
+        }
+    </script>
+</body>
+
+</html>
